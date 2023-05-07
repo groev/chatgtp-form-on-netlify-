@@ -39,6 +39,7 @@ export function handler(event, context, callback) {
       });
     })
     .catch((error) => {
+      console.log(error);
       callback(null, {
         statusCode: 500,
         body: JSON.stringify({ message: "Fehler bei der Anfrage" }),
