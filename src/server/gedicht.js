@@ -14,7 +14,7 @@ export function handler(event, context, callback) {
   ) {
     return res.status(400).json({ message: "Invalid request parameters." });
   }
-  const prompt = `Schreibe ein 2 versiges Gedicht für  ${name} mit dem Alter ${age} zum Geburtstag. Das Hobby der Person ist ${hobby}.`;
+  const prompt = `Formuliere ein Geburtstagsgedicht für die Person ${name}, ${age} Jahre alt und hat die Hobbys ${hobby}. Länge: 1 Strophe aus 6 Versen.`;
 
   axios
     .post(
@@ -25,6 +25,7 @@ export function handler(event, context, callback) {
         temperature: 0.7,
       },
       {
+        timeout: 20000,
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${API_KEY}`,

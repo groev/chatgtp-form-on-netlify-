@@ -99,10 +99,19 @@ body {
       background-color: rgba(255, 255, 255, 0.05);
       border-radius: 5px;
       white-space: pre-wrap;
+      .result {
+        font-size: 0.9rem;
+      }
       svg {
         height: 2rem;
         width: 2rem;
       }
+    }
+  }
+  .explain {
+    margin-top: 4rem;
+    h3 {
+      font-size: 1rem;
     }
   }
 }

@@ -86,6 +86,30 @@ function App() {
             {error && <div className="error">{error}</div>}
           </div>
         </div>
+        <div className="explain">
+          <h3>Was passiert hier?</h3>
+          <p>
+            Im ersten Schritt werden die 3 Formularfelder an eine kleine
+            Serverfunktion gesendet. Diese baut aus den 3 Informationen
+            folgenden Satz:
+            <p>
+              <i>
+                Formuliere ein Geburtstagsgedicht. Der Vorname der Person ist
+                %NAME%, sie ist %ALTER% Jahre alt geworden und hat die Hobbys
+                %HOBBY%. Das Gedicht soll aus zwei Absätzen mit jeweils 4 Zeilen
+                bestehen.
+              </i>
+            </p>
+            <p>
+              Dieser Satz wird über die API-Schnittstelle an Chat GTP übergeben,
+              zusammen mit anderen Informationen wie die Auswahl des Modells.
+            </p>
+            <p>
+              Zurück kommt das formulierte Ergebnis und kann im Frontend
+              dargestellt werden.
+            </p>
+          </p>
+        </div>
       </div>
     </div>
   );
