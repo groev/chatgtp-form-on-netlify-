@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;700&display=swap");
+
+$green: rgb(183, 209, 42);
+$blue: #00313c;
+
+body {
+  background: $blue;
+  color: white;
+  margin: 0;
+  padding: 0;
+  font-family: "Bai Jamjuree", sans-serif;
+}
+.green {
+  color: $green;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  max-width: 50rem;
+  margin: 0 auto;
+  @media (max-width: 768px) {
+    align-items: flex-start;
+  }
+  .inner {
+    width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding-bottom: 1rem;
+      @media (max-width: 768px) {
+        font-size: 1.3rem;
+      }
+    }
+    h2 {
+      margin: 0;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    .inner-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 2rem;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
+      .form-wrap {
+        .field-wrap {
+          margin-bottom: 1rem;
+          label {
+            font-size: 0.8rem;
+            opacity: 0.5;
+            display: block;
+            margin-bottom: 0.5rem;
+          }
+          input {
+            color: white;
+            appearance: none;
+            border: 0px;
+            background: rgba(255, 255, 255, 0.2);
+            font-family: inherit;
+            border-radius: 5px;
+            padding: 0.5rem 1rem;
+            width: 100%;
+            font-size: 1rem;
+            display: inline-block;
+            box-sizing: border-box;
+          }
+          .field-error {
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: red;
+          }
+        }
+        button {
+          appearance: none;
+          background: $green;
+          font-size: 1rem;
+          font-family: inherit;
+          color: white;
+          font-weight: bold;
+          border-radius: 5px;
+          padding: 0.5rem 1rem;
+          display: block;
+          border: 0px;
+          border-bottom: 3px solid rgb(100, 113, 25);
+        }
+      }
+    }
+    .result-wrap {
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 5px;
+      white-space: pre-wrap;
+      svg {
+        height: 2rem;
+        width: 2rem;
+      }
+    }
+  }
+}
