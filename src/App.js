@@ -9,6 +9,7 @@ function App() {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [explain, showExplain] = useState(false);
 
   const validationSchema = Yup.object().shape({
     name: Yup.string()
@@ -87,28 +88,32 @@ function App() {
           </div>
         </div>
         <div className="explain">
-          <h3>Was passiert hier?</h3>
-          <p>
-            Im ersten Schritt werden die 3 Formularfelder an eine kleine
-            Serverfunktion gesendet. Diese baut aus den 3 Informationen
-            folgenden Satz:
-            <p>
-              <i>
-                Formuliere ein Geburtstagsgedicht. Der Vorname der Person ist
-                %NAME%, sie ist %ALTER% Jahre alt geworden und hat die Hobbys
-                %HOBBY%. Das Gedicht soll aus zwei Absätzen mit jeweils 4 Zeilen
-                bestehen.
-              </i>
-            </p>
-            <p>
-              Dieser Satz wird über die API-Schnittstelle an Chat GTP übergeben,
-              zusammen mit anderen Informationen wie die Auswahl des Modells.
-            </p>
-            <p>
-              Zurück kommt das formulierte Ergebnis und kann im Frontend
-              dargestellt werden.
-            </p>
-          </p>
+          <h3 onClick={() => showExplain(!explain)}>Was passiert hier?</h3>
+          {explain && (
+            <div className="explain-content">
+              <p>
+                Im ersten Schritt werden die 3 Formularfelder an eine kleine
+                Serverfunktion gesendet. Diese baut aus den 3 Informationen
+                folgenden Satz:
+                <p>
+                  <i>
+                    Formuliere ein Geburtstagsgedicht für die Person %name%, die
+                    Person ist %alter% Jahre alt und das Hobby ist %hobby%.
+                    Länge 1 Strophe mit 6 Versen.
+                  </i>
+                </p>
+                <p>
+                  Dieser Satz wird über die API-Schnittstelle an Chat GTP
+                  übergeben, zusammen mit anderen Informationen, wie z.B. die
+                  Auswahl des Modells.
+                </p>
+                <p>
+                  Zurück kommt das formulierte Ergebnis und kann im Frontend
+                  dargestellt werden.
+                </p>
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </div>
